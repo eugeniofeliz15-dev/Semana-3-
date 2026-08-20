@@ -11,7 +11,7 @@ interface Estudiante {
 
 const estudiantes: Estudiante[] = [];
 
-// GET / - Obtener todos o filtrar por bootcamp
+
 router.get('/', (req, res) => {
   const bootcamp = req.query.bootcamp as string;
 
