@@ -13,6 +13,8 @@ const estudiantes: Estudiante[] = [];
 
 // GET / - Obtener todos o filtrar por bootcamp
 router.get('/', (req, res) => {
+  // #swagger.description = 'Obtiene todos los estudiantes o filtra por bootcamp usando un query param'
+
   const bootcamp = req.query.bootcamp as string;
 
   if (bootcamp) {
@@ -26,6 +28,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  // #swagger.description = 'Busca y retorna un estudiante por su ID'
+
   const id = Number(req.params.id);
   const estudiante = estudiantes.find((est) => est.id === id);
 
@@ -38,6 +42,8 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
+  // #swagger.description = 'Crea un nuevo estudiante. El email es obligatorio.'
+
   const datosEstudiante = req.body;
 
   if (!datosEstudiante.email) {
@@ -58,6 +64,8 @@ router.post('/', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
+  // #swagger.description = 'Actualiza la información de un estudiante existente'
+
   const id = Number(req.params.id);
   const datosActualizados = req.body;
 
@@ -73,6 +81,8 @@ router.put('/:id', (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
+  // #swagger.description = 'Elimina un estudiante permanentemente'
+
   const id = Number(req.params.id);
   const indice = estudiantes.findIndex((estudiante) => estudiante.id === id);
 
